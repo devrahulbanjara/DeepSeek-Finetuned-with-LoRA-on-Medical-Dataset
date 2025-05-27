@@ -5,6 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
+**/unsloth_compiled_cache*
 
 # Distribution / packaging
 .Python
