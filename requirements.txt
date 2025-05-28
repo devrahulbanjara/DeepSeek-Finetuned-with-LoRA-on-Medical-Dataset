@@ -1,0 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cu124
+
+torch==2.5.1+cu124
+torchvision==0.20.1+cu124
+trl==0.14.0
+peft==0.14.0
+xformers==0.0.28.post3
+unsloth==2025.3.8
+wandb==0.19.11
+transformers==4.49.0
