@@ -7,6 +7,9 @@ __pycache__/
 *.so
 **/unsloth_compiled_cache*
 
+outputs
+wandb
+
 # Distribution / packaging
 .Python
 build/
