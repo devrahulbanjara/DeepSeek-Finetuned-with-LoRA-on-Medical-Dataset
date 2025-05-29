@@ -11,7 +11,6 @@ from src.prompts.train_prompt_template import train_prompt_template
 from src.utils.early_stopping import SaveBestModelCallback
 from config.settings import HF_TOKEN, WANDB_API_KEY
 from src.data.loader import medical_dataset, preprocess_input_data
-from transformers import pipeline
 import numpy as np
 
 print("\n" + "=" * 60)
@@ -153,25 +152,6 @@ eval_result = trainer.evaluate()
 perplexity = compute_perplexity((eval_result["eval_loss"],))
 print(f"✔ Perplexity: {perplexity['perplexity']:.2f}\n")
 wandb.log(perplexity)
-
-print("=" * 60)
-print("Generating Sample Predictions...")
-print("=" * 60 + "\n")
-
-pipe = pipeline("text-generation", model=model_lora, tokenizer=tokenizer, device=0 if torch.cuda.is_available() else -1)
-
-sample_inputs = [
-    "Patient reports chest pain and shortness of breath. What could be the possible causes?",
-    "What are the recommended treatments for type 2 diabetes?"
-]
-
-for prompt in sample_inputs:
-    formatted = infer_prompt_template(prompt)
-    outputs = pipe(formatted, max_new_tokens=100, do_sample=True, top_k=50, temperature=0.7)
-    prediction = outputs[0]["generated_text"]
-    print(f"Prompt   : {prompt}")
-    print(f"Response : {prediction.strip()}\n")
-    wandb.log({f"sample_output_{prompt[:10]}": prediction})
 
 print("=" * 60)
 print("Pushing Model to Hugging Face Hub...")
