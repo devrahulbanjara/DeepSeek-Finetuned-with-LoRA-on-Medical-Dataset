@@ -1,5 +1,9 @@
 # DeepSeek-Finetuned-with-LoRA-on-Medical-Dataset
 
+<div align="center">
+  <img src="docs/inference1.png" alt="Inference Example" width="800">
+</div>
+
 ![License](https://img.shields.io/badge/license-GPL--2.0-blue)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.5.1-orange)
