@@ -20,8 +20,8 @@ model, tokenizer = FastLanguageModel.from_pretrained(
 )
 
 sample_inputs = [
-    "Patient reports chest pain and shortness of breath. What could be the possible causes?",
-    "What are the recommended treatments for type 2 diabetes?"
+    "How do i cure a viral fever happened during season change? ",
+    "What are the recommended treatments for type 2 diabetes? Explain me to the point."
 ]
 
 for i, prompt in enumerate(sample_inputs, start=1):
@@ -29,7 +29,7 @@ for i, prompt in enumerate(sample_inputs, start=1):
     inputs = tokenizer(formatted, return_tensors="pt").to("cuda")
     outputs = model.generate(
         **inputs,
-        max_new_tokens=100,
+        max_new_tokens=500,
         do_sample=True,
         top_k=50,
         temperature=0.7
