@@ -48,7 +48,7 @@ The LoRA adapter weights are available on Hugging Face: [DeepSeek-R1-Distill-Lla
 ## Repository Structure
 
 ```
-DeepSeek-R1-Finetune-Medical-Consultant/
+DeepSeek-Finetuned-with-LoRA-on-Medical-Dataset/
 ├── config/                  # Configuration files and environment settings
 ├── data/                    # Training and evaluation datasets (with citations)
 ├── docs/                    # Documentation files
